@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bravari Burger - Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#b93216',
+                        secondary: '#ffb75e'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-primary text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-2 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <img src="https://raw.githubusercontent.com/bravariburger/pedir/refs/heads/main/MYSTIC.png" alt="Bravari Burger" class="h-8 sm:h-12 w-auto" onerror="this.src=''; this.alt='Logo Bravari Burger'; this.style.display='none';">
+                <h1 class="text-lg sm:text-2xl font-bold">Bravari Burger</h1>
+            </div>
+            <button onclick="toggleCart()" class="bg-secondary text-primary px-2 sm:px-4 py-2 rounded-lg font-semibold flex items-center space-x-1 sm:space-x-2 hover:bg-yellow-400 transition-colors text-sm sm:text-base">
+                <span>🛒</span>
+                <span class="hidden sm:inline">Carrinho</span>
+                <span>(<span id="cart-count">0</span>)</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-2 sm:px-4 py-4 sm:py-8 flex flex-col lg:flex-row gap-4 lg:gap-8">
+        <!-- Menu -->
+        <div class="flex-1">
+            <h2 class="text-3xl font-bold text-primary mb-8">Nosso Cardápio</h2>
+            
+            <!-- Hambúrgueres -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="mr-2">🍔</span>
+                    Hambúrgueres
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="burgers-section">
+                    <!-- PRODUCT_START: Cheddar Burguer 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar Burguer 1" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Cheddar Burguer 1</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Cheddar Burguer 1', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Cheddar Burguer 1 -->
+
+                    <!-- PRODUCT_START: Cheddar bacon Burguer 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar bacon Burguer 2" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Cheddar bacon Burguer 2</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Cheddar bacon Burguer 2', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Cheddar bacon Burguer 2 -->
+
+                    <!-- PRODUCT_START: Bravari burguer 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari burguer 3" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Bravari burguer 3</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Bravari burguer 3', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Bravari burguer 3 -->
+
+                    <!-- PRODUCT_START: Cheddar Burguer duplo 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar Burguer duplo 4" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Cheddar Burguer duplo 4</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Cheddar Burguer duplo 4', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Cheddar Burguer duplo 4 -->
+
+                    <!-- PRODUCT_START: Cheddar bacon burguer duplo 5 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar bacon burguer duplo 5" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Cheddar bacon burguer duplo 5</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Cheddar bacon burguer duplo 5', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Cheddar bacon burguer duplo 5 -->
+
+                    <!-- PRODUCT_START: Bravari burguer duplo 6 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari burguer duplo 6" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Bravari burguer duplo 6</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Bravari burguer duplo 6', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Bravari burguer duplo 6 -->
+
+                    <!-- PRODUCT_START: Bravari bacon triplo 7 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari bacon triplo 7" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Bravari bacon triplo 7</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Bravari bacon triplo 7', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Bravari bacon triplo 7 -->
+
+                    <!-- PRODUCT_START: Bravari ring triplo 8 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari ring triplo 8" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Bravari ring triplo 8</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Bravari ring triplo 8', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Bravari ring triplo 8 -->
+
+                    <!-- PRODUCT_START: Bravari burguer ring 9 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari burguer ring 9" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Bravari burguer ring 9</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Bravari burguer ring 9', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Bravari burguer ring 9 -->
+
+                    <!-- PRODUCT_START: Vulcan burguer 10 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Vulcan burguer 10" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Vulcan burguer 10</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Vulcan burguer 10', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Vulcan burguer 10 -->
+
+                    <!-- PRODUCT_START: Creem cheese Burguer 11 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Creem cheese Burguer 11" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Creem cheese Burguer 11</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Creem cheese Burguer 11', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Creem cheese Burguer 11 -->
+                </div>
+            </div>
+
+            <!-- Combos -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="mr-2">🍔🍟</span>
+                    Combos
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <!-- COMBO_START: Combo Cheddar Burguer 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Cheddar Burguer 1" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Cheddar Burguer 1</h4>
+                            <p class="text-gray-600 text-sm mb-2">Cheddar Burguer 1 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Cheddar Burguer 1', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Cheddar Burguer 1 -->
+
+                    <!-- COMBO_START: Combo Cheddar bacon Burguer 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Cheddar bacon Burguer 2" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Cheddar bacon Burguer 2</h4>
+                            <p class="text-gray-600 text-sm mb-2">Cheddar bacon Burguer 2 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Cheddar bacon Burguer 2', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Cheddar bacon Burguer 2 -->
+
+                    <!-- COMBO_START: Combo Bravari burguer 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Bravari burguer 3" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Bravari burguer 3</h4>
+                            <p class="text-gray-600 text-sm mb-2">Bravari burguer 3 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Bravari burguer 3', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Bravari burguer 3 -->
+
+                    <!-- COMBO_START: Combo Cheddar Burguer duplo 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Cheddar Burguer duplo 4" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Cheddar Burguer duplo 4</h4>
+                            <p class="text-gray-600 text-sm mb-2">Cheddar Burguer duplo 4 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Cheddar Burguer duplo 4', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Cheddar Burguer duplo 4 -->
+
+                    <!-- COMBO_START: Combo Cheddar bacon burguer duplo 5 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Cheddar bacon burguer duplo 5" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Cheddar bacon burguer duplo 5</h4>
+                            <p class="text-gray-600 text-sm mb-2">Cheddar bacon burguer duplo 5 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Cheddar bacon burguer duplo 5', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Cheddar bacon burguer duplo 5 -->
+
+                    <!-- COMBO_START: Combo Bravari burguer duplo 6 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Bravari burguer duplo 6" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Bravari burguer duplo 6</h4>
+                            <p class="text-gray-600 text-sm mb-2">Bravari burguer duplo 6 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Bravari burguer duplo 6', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Bravari burguer duplo 6 -->
+
+                    <!-- COMBO_START: Combo Bravari bacon triplo 7 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Bravari bacon triplo 7" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Bravari bacon triplo 7</h4>
+                            <p class="text-gray-600 text-sm mb-2">Bravari bacon triplo 7 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Bravari bacon triplo 7', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Bravari bacon triplo 7 -->
+
+                    <!-- COMBO_START: Combo Bravari ring triplo 8 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Bravari ring triplo 8" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Bravari ring triplo 8</h4>
+                            <p class="text-gray-600 text-sm mb-2">Bravari ring triplo 8 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Bravari ring triplo 8', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Bravari ring triplo 8 -->
+
+                    <!-- COMBO_START: Combo Bravari burguer ring 9 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Bravari burguer ring 9" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Bravari burguer ring 9</h4>
+                            <p class="text-gray-600 text-sm mb-2">Bravari burguer ring 9 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Bravari burguer ring 9', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Bravari burguer ring 9 -->
+
+                    <!-- COMBO_START: Combo Vulcan burguer 10 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Vulcan burguer 10" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍔 Combo Vulcan burguer 10</h4>
+                            <p class="text-gray-600 text-sm mb-2">Vulcan burguer 10 + Batata P + Bebida</p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 32,90</p>
+                            <button onclick="openProductModal('Combo Vulcan burguer 10', 32.90, 'combo')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Combo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- COMBO_END: Combo Vulcan burguer 10 -->
+                </div>
+            </div>
+
+            <!-- Sobremesas -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="mr-2">🍫</span>
+                    Sobremesas
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <!-- PRODUCT_START: Brownie chocolate -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Brownie chocolate" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍫 Brownie chocolate</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Brownie chocolate', 19.90, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Brownie chocolate -->
+
+                    <!-- PRODUCT_START: Brownie chocolate branco -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Brownie chocolate branco" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍫 Brownie chocolate branco</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
+                            <button onclick="openProductModal('Brownie chocolate branco', 19.90, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Brownie chocolate branco -->
+                </div>
+            </div>
+
+            <!-- Acompanhamentos -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="mr-2">🍟</span>
+                    Acompanhamentos
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <!-- PRODUCT_START: Batata Frita P -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Batata Frita P" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍟 Batata Frita P</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 12,90</p>
+                            <button onclick="openProductModal('Batata Frita P', 12.90, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Batata Frita P -->
+
+                    <!-- PRODUCT_START: Batata Frita M -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Batata Frita M" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍟 Batata Frita M</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 17,90</p>
+                            <button onclick="openProductModal('Batata Frita M', 17.90, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Batata Frita M -->
+
+                    <!-- PRODUCT_START: Batata Frita G -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Batata Frita G" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🍟 Batata Frita G</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 29,90</p>
+                            <button onclick="openProductModal('Batata Frita G', 29.90, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: Batata Frita G -->
+                </div>
+            </div>
+
+            <!-- Bebidas -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="mr-2">🥤</span>
+                    Bebidas
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <!-- PRODUCT_START: coca cola latinha 350ml -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="coca cola latinha 350ml" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🥤 coca cola latinha 350ml</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 6,50</p>
+                            <button onclick="openProductModal('coca cola latinha 350ml', 6.50, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: coca cola latinha 350ml -->
+
+                    <!-- PRODUCT_START: coca cola zero latinha 350ml -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="coca cola zero latinha 350ml" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🥤 coca cola zero latinha 350ml</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 6,50</p>
+                            <button onclick="openProductModal('coca cola zero latinha 350ml', 6.50, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: coca cola zero latinha 350ml -->
+
+                    <!-- PRODUCT_START: guarana antarica latinha 350ml -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="guarana antarica latinha 350ml" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🥤 guarana antarica latinha 350ml</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 6,50</p>
+                            <button onclick="openProductModal('guarana antarica latinha 350ml', 6.50, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: guarana antarica latinha 350ml -->
+
+                    <!-- PRODUCT_START: guarana antartica 1 litrol -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="guarana antartica 1 litrol" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg text-primary">🥤 guarana antartica 1 litrol</h4>
+                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-xl font-bold text-secondary mb-4">R$ 6,50</p>
+                            <button onclick="openProductModal('guarana antartica 1 litrol', 6.50, 'simple')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                                Ver Produto
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PRODUCT_END: guarana antartica 1 litrol -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrinho -->
+        <div class="lg:w-96">
+            <div id="cart-sidebar" class="bg-white rounded-lg shadow-lg p-4 lg:p-6 sticky top-24 hidden">
+                <h3 class="text-lg lg:text-xl font-bold text-primary mb-4">Seu Carrinho</h3>
+                <div id="cart-items" class="space-y-3 lg:space-y-4 mb-6 max-h-60 lg:max-h-96 overflow-y-auto">
+                    <p class="text-gray-500 text-center text-sm lg:text-base">Carrinho vazio</p>
+                </div>
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-bold text-base lg:text-lg">Total:</span>
+                        <span id="cart-total" class="font-bold text-lg lg:text-xl text-secondary">R$ 0,00</span>
+                    </div>
+                    <button onclick="showCheckout()" id="checkout-btn" class="w-full bg-primary text-white py-2 lg:py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 text-sm lg:text-base" disabled>
+                        Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Produto -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="product-modal-title" class="text-xl font-bold text-primary"></h3>
+                    <button onclick="closeProductModal()" class="text-gray-500 hover:text-gray-700">✕</button>
+                </div>
+
+                <div id="product-modal-content">
+                    <!-- Conteúdo será preenchido dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-primary">Finalizar Pedido</h3>
+                    <button onclick="closeCheckout()" class="text-gray-500 hover:text-gray-700">✕</button>
+                </div>
+
+                <form id="checkout-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nome completo *</label>
+                        <input type="text" id="customer-name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Telefone *</label>
+                        <input type="tel" id="customer-phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="(21) 99999-9999">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Endereço completo *</label>
+                        <textarea id="customer-address" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Rua, número, complemento, bairro, cidade"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Método de pagamento *</label>
+                        <select id="payment-method" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="toggleChangeField()">
+                            <option value="">Selecione o método</option>
+                            <option value="credito">Cartão de Crédito</option>
+                            <option value="debito">Cartão de Débito</option>
+                            <option value="pix">PIX</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+                    </div>
+
+                    <div id="change-field" class="hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Troco para quanto?</label>
+                        <input type="number" id="change-amount" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ex: 50.00" step="0.01">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Observações do pedido</label>
+                        <textarea id="order-notes" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="2" placeholder="Observações gerais sobre o pedido"></textarea>
+                    </div>
+
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-lg">Total:</span>
+                            <span id="checkout-total" class="font-bold text-xl text-secondary">R$ 0,00</span>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                            Enviar Pedido via WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+        let currentProduct = null;
+
+        // Função para abrir modal do produto
+        function openProductModal(name, price, type) {
+            currentProduct = { name, price, type };
+            document.getElementById('product-modal-title').textContent = name;
+            
+            let content = '';
+            
+            if (type === 'simple') {
+                content = `
+                    <div class="space-y-4">
+                        <div class="text-center">
+                            <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="${name}" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                            <p class="text-2xl font-bold text-secondary">R$ ${price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Observações</label>
+                            <textarea id="product-observations" class="w-full p-3 border rounded-lg" rows="3" placeholder="Alguma observação especial?"></textarea>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-bold">Total:</span>
+                                <span id="modal-total" class="font-bold text-xl text-secondary">R$ ${price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="addSimpleProductToCart()" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'burger') {
+                content = `
+                    <div class="space-y-4">
+                        <div class="text-center">
+                            <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="${name}" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                            <p class="text-2xl font-bold text-secondary">R$ ${price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Observações</label>
+                            <textarea id="product-observations" class="w-full p-3 border rounded-lg" rows="3" placeholder="Alguma observação especial?"></textarea>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <h4 class="font-bold text-primary mb-3">Que tal adicionar?</h4>
+                            
+                            <!-- Cross-sell Bebidas -->
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-700 mb-2">🥤 Bebidas</h5>
+                                <div class="space-y-2">
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Coca Cola 350ml" data-price="6.50">
+                                            <span>Coca Cola 350ml</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 6,50</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Guaraná Antarctica 350ml" data-price="6.50">
+                                            <span>Guaraná Antarctica 350ml</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 6,50</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Cross-sell Batatas -->
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-700 mb-2">🍟 Batatas</h5>
+                                <div class="space-y-2">
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Batata Frita P" data-price="12.90">
+                                            <span>Batata Frita P</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 12,90</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Batata Frita M" data-price="17.90">
+                                            <span>Batata Frita M</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 17,90</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Batata Frita G" data-price="29.90">
+                                            <span>Batata Frita G</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 29,90</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Cross-sell Sobremesas -->
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-700 mb-2">🍫 Sobremesas</h5>
+                                <div class="space-y-2">
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Brownie chocolate" data-price="19.90">
+                                            <span>Brownie chocolate</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 19,90</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Brownie chocolate branco" data-price="19.90">
+                                            <span>Brownie chocolate branco</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 19,90</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-bold">Total:</span>
+                                <span id="modal-total" class="font-bold text-xl text-secondary">R$ ${price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="addProductToCart()" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'combo') {
+                content = `
+                    <div class="space-y-4">
+                        <div class="text-center">
+                            <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="${name}" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                            <p class="text-2xl font-bold text-secondary">R$ ${price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Observações</label>
+                            <textarea id="product-observations" class="w-full p-3 border rounded-lg" rows="3" placeholder="Alguma observação especial?"></textarea>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <!-- Seleção de Bebida (Obrigatória) -->
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-700 mb-2">🥤 Escolha sua bebida *</h5>
+                                <div class="space-y-2">
+                                    <label class="flex items-center p-2 border rounded hover:bg-gray-50">
+                                        <input type="radio" name="combo-drink" class="mr-2" data-name="Coca Cola 350ml" required>
+                                        <span>Coca Cola 350ml</span>
+                                    </label>
+                                    <label class="flex items-center p-2 border rounded hover:bg-gray-50">
+                                        <input type="radio" name="combo-drink" class="mr-2" data-name="Coca Cola Zero 350ml" required>
+                                        <span>Coca Cola Zero 350ml</span>
+                                    </label>
+                                    <label class="flex items-center p-2 border rounded hover:bg-gray-50">
+                                        <input type="radio" name="combo-drink" class="mr-2" data-name="Guaraná Antarctica 350ml" required>
+                                        <span>Guaraná Antarctica 350ml</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Seleção de Batata (Obrigatória com upgrade) -->
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-700 mb-2">🍟 Escolha sua batata *</h5>
+                                <div class="space-y-2">
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="radio" name="combo-potato" class="mr-2" data-name="Batata Frita P" data-price="0" required>
+                                            <span>Batata Frita P (Incluída)</span>
+                                        </div>
+                                        <span class="text-green-600 font-bold">Grátis</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="radio" name="combo-potato" class="mr-2" data-name="Batata Frita M" data-price="5" required>
+                                            <span>Batata Frita M</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 5,00</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="radio" name="combo-potato" class="mr-2" data-name="Batata Frita G" data-price="8" required>
+                                            <span>Batata Frita G</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 8,00</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Cross-sell Sobremesas -->
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-700 mb-2">🍫 Que tal uma sobremesa?</h5>
+                                <div class="space-y-2">
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Brownie chocolate" data-price="19.90">
+                                            <span>Brownie chocolate</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 19,90</span>
+                                    </label>
+                                    <label class="flex items-center justify-between p-2 border rounded hover:bg-gray-50">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="crosssell-item mr-2" data-name="Brownie chocolate branco" data-price="19.90">
+                                            <span>Brownie chocolate branco</span>
+                                        </div>
+                                        <span class="text-secondary font-bold">+R$ 19,90</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-bold">Total:</span>
+                                <span id="modal-total" class="font-bold text-xl text-secondary">R$ ${price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="addComboToCart()" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('product-modal-content').innerHTML = content;
+            document.getElementById('product-modal').classList.remove('hidden');
+            
+            // Adicionar listeners para atualizar total
+            if (type === 'burger') {
+                document.querySelectorAll('.crosssell-item').forEach(item => {
+                    item.addEventListener('change', updateModalTotal);
+                });
+            } else if (type === 'combo') {
+                document.querySelectorAll('input[name="combo-potato"]').forEach(item => {
+                    item.addEventListener('change', updateModalTotal);
+                });
+                document.querySelectorAll('.crosssell-item').forEach(item => {
+                    item.addEventListener('change', updateModalTotal);
+                });
+            }
+        }
+
+        // Função para fechar modal do produto
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+            currentProduct = null;
+        }
+
+        // Função para atualizar total do modal
+        function updateModalTotal() {
+            let total = currentProduct.price;
+            
+            if (currentProduct.type === 'combo') {
+                // Adicionar custo da batata upgrade
+                const selectedPotato = document.querySelector('input[name="combo-potato"]:checked');
+                if (selectedPotato) {
+                    total += parseFloat(selectedPotato.dataset.price || 0);
+                }
+            }
+            
+            // Adicionar cross-sells
+            document.querySelectorAll('.crosssell-item:checked').forEach(item => {
+                total += parseFloat(item.dataset.price);
+            });
+            
+            document.getElementById('modal-total').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Função para adicionar produto simples ao carrinho
+        function addSimpleProductToCart() {
+            const observations = document.getElementById('product-observations').value;
+            
+            const item = {
+                id: Date.now(),
+                name: currentProduct.name,
+                price: currentProduct.price,
+                observations: observations
+            };
+            
+            cart.push(item);
+            cartTotal += currentProduct.price;
+            
+            updateCartDisplay();
+            closeProductModal();
+            
+            // Feedback visual
+            showToast('Produto adicionado ao carrinho!');
+        }
+
+        // Função para adicionar produto do modal ao carrinho
+        function addProductToCart() {
+            const observations = document.getElementById('product-observations').value;
+            let totalPrice = currentProduct.price;
+            let itemName = currentProduct.name;
+            let itemDetails = [];
+            
+            // Adicionar cross-sells
+            document.querySelectorAll('.crosssell-item:checked').forEach(item => {
+                const crossSellPrice = parseFloat(item.dataset.price);
+                totalPrice += crossSellPrice;
+                itemDetails.push(`+ ${item.dataset.name}`);
+            });
+            
+            if (itemDetails.length > 0) {
+                itemName += ` (${itemDetails.join(', ')})`;
+            }
+            
+            const item = {
+                id: Date.now(),
+                name: itemName,
+                price: totalPrice,
+                observations: observations
+            };
+            
+            cart.push(item);
+            cartTotal += totalPrice;
+            
+            updateCartDisplay();
+            closeProductModal();
+            
+            // Feedback visual
+            showToast('Produto adicionado ao carrinho!');
+        }
+
+        // Função para adicionar combo ao carrinho
+        function addComboToCart() {
+            const selectedDrink = document.querySelector('input[name="combo-drink"]:checked');
+            const selectedPotato = document.querySelector('input[name="combo-potato"]:checked');
+            
+            if (!selectedDrink || !selectedPotato) {
+                alert('Por favor, selecione uma bebida e uma batata para o combo.');
+                return;
+            }
+            
+            const observations = document.getElementById('product-observations').value;
+            let totalPrice = currentProduct.price;
+            let itemName = currentProduct.name;
+            let itemDetails = [];
+            
+            // Adicionar bebida e batata selecionadas
+            itemDetails.push(selectedDrink.dataset.name);
+            itemDetails.push(selectedPotato.dataset.name);
+            
+            // Adicionar custo da batata upgrade
+            totalPrice += parseFloat(selectedPotato.dataset.price || 0);
+            
+            // Adicionar cross-sells
+            document.querySelectorAll('.crosssell-item:checked').forEach(item => {
+                const crossSellPrice = parseFloat(item.dataset.price);
+                totalPrice += crossSellPrice;
+                itemDetails.push(`+ ${item.dataset.name}`);
+            });
+            
+            itemName += ` (${itemDetails.join(', ')})`;
+            
+            const item = {
+                id: Date.now(),
+                name: itemName,
+                price: totalPrice,
+                observations: observations
+            };
+            
+            cart.push(item);
+            cartTotal += totalPrice;
+            
+            updateCartDisplay();
+            closeProductModal();
+            
+            // Feedback visual
+            showToast('Combo adicionado ao carrinho!');
+        }
+
+        // Função para mostrar toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Função para adicionar produto ao carrinho (produtos simples)
+        function addToCart(name, price, button) {
+            const productCard = button.closest('.product-card');
+            const observationsTextarea = productCard.querySelector('textarea');
+            const observations = observationsTextarea ? observationsTextarea.value : '';
+            
+            const item = {
+                id: Date.now(),
+                name: name,
+                price: price,
+                observations: observations
+            };
+            
+            cart.push(item);
+            cartTotal += price;
+            
+            updateCartDisplay();
+            showToast('Produto adicionado ao carrinho!');
+            
+            // Limpar observações
+            if (observationsTextarea) {
+                observationsTextarea.value = '';
+            }
+        }
+
+        // Atualizar display do carrinho
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            
+            cartCount.textContent = cart.length;
+            cartTotalElement.textContent = `R$ ${cartTotal.toFixed(2).replace('.', ',')}`;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center">Carrinho vazio</p>';
+                checkoutBtn.disabled = true;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex justify-between items-start p-3 bg-gray-50 rounded">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-sm">${item.name}</h4>
+                            ${item.observations ? `<p class="text-xs text-gray-600 mt-1">Obs: ${item.observations}</p>` : ''}
+                            <p class="text-secondary font-bold">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 ml-2">
+                            🗑️
+                        </button>
+                    </div>
+                `).join('');
+                checkoutBtn.disabled = false;
+            }
+        }
+
+        // Remover item do carrinho
+        function removeFromCart(itemId) {
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            if (itemIndex > -1) {
+                cartTotal -= cart[itemIndex].price;
+                cart.splice(itemIndex, 1);
+                updateCartDisplay();
+            }
+        }
+
+        // Toggle carrinho
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cart-sidebar');
+            cartSidebar.classList.toggle('hidden');
+        }
+
+        // Mostrar checkout
+        function showCheckout() {
+            document.getElementById('checkout-modal').classList.remove('hidden');
+            document.getElementById('checkout-total').textContent = `R$ ${cartTotal.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Fechar checkout
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        // Toggle campo de troco
+        function toggleChangeField() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            const changeField = document.getElementById('change-field');
+            
+            if (paymentMethod === 'dinheiro') {
+                changeField.classList.remove('hidden');
+                document.getElementById('change-amount').required = true;
+            } else {
+                changeField.classList.add('hidden');
+                document.getElementById('change-amount').required = false;
+            }
+        }
+
+        // Processar checkout
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const address = document.getElementById('customer-address').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const changeAmount = document.getElementById('change-amount').value;
+            const orderNotes = document.getElementById('order-notes').value;
+            
+            // Mapear métodos de pagamento
+            const paymentMethods = {
+                'credito': 'Cartão de Crédito',
+                'debito': 'Cartão de Débito',
+                'pix': 'PIX',
+                'dinheiro': 'Dinheiro'
+            };
+            
+            // Montar mensagem do WhatsApp
+            let message = `🍔 *NOVO PEDIDO - BRAVARI BURGER*\n\n`;
+            message += `👤 *Cliente:* ${name}\n`;
+            message += `📱 *Telefone:* ${phone}\n`;
+            message += `📍 *Endereço:* ${address}\n\n`;
+            
+            message += `🛒 *ITENS DO PEDIDO:*\n`;
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - R$ ${item.price.toFixed(2).replace('.', ',')}\n`;
+                if (item.observations) {
+                    message += `   📝 Obs: ${item.observations}\n`;
+                }
+            });
+            
+            message += `\n💰 *TOTAL: R$ ${cartTotal.toFixed(2).replace('.', ',')}*\n\n`;
+            message += `💳 *Pagamento:* ${paymentMethods[paymentMethod]}`;
+            
+            if (paymentMethod === 'dinheiro' && changeAmount) {
+                const change = parseFloat(changeAmount) - cartTotal;
+                message += `\n💵 *Troco para:* R$ ${parseFloat(changeAmount).toFixed(2).replace('.', ',')}\n`;
+                message += `💸 *Troco:* R$ ${change.toFixed(2).replace('.', ',')}`;
+            }
+            
+            if (orderNotes) {
+                message += `\n\n📋 *Observações:* ${orderNotes}`;
+            }
+            
+            // Codificar mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/5521959549941?text=${encodedMessage}`;
+            
+            // Abrir WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Limpar carrinho e fechar modal
+            cart = [];
+            cartTotal = 0;
+            updateCartDisplay();
+            closeCheckout();
+            
+            // Reset form
+            document.getElementById('checkout-form').reset();
+            document.getElementById('change-field').classList.add('hidden');
+        });
+
+        // Mostrar carrinho automaticamente no desktop
+        function checkScreenSize() {
+            if (window.innerWidth >= 1024) {
+                document.getElementById('cart-sidebar').classList.remove('hidden');
+            } else {
+                document.getElementById('cart-sidebar').classList.add('hidden');
+            }
+        }
+        
+        // Verificar tamanho da tela no carregamento e redimensionamento
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a99c78239dcb51',t:'MTc1NzExNjA0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
