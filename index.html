@@ -45,15 +45,15 @@
                     <span class="mr-2">🍔</span>
                     Hambúrgueres
                 </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="burgers-section">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6" id="burgers-section">
                     <!-- PRODUCT_START: Cheddar Burguer 1 -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
-                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar Burguer 1" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
-                        <div class="p-4">
-                            <h4 class="font-bold text-lg text-primary">🍔 Cheddar Burguer 1</h4>
-                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
-                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
-                            <button onclick="openProductModal('Cheddar Burguer 1', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card cursor-pointer hover:shadow-lg transition-shadow" data-available="true" onclick="openProductModal('Cheddar Burguer 1', 19.90, 'burger')">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar Burguer 1" class="w-full h-32 sm:h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-2 sm:p-4">
+                            <h4 class="font-bold text-sm sm:text-lg text-primary">🍔 Cheddar Burguer 1</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 hidden sm:block"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-lg sm:text-xl font-bold text-secondary mb-2 sm:mb-4">R$ 19,90</p>
+                            <button onclick="event.stopPropagation(); openProductModal('Cheddar Burguer 1', 19.90, 'burger')" class="w-full bg-primary text-white py-1 sm:py-2 rounded hover:bg-red-700 transition-colors text-xs sm:text-base">
                                 Ver Produto
                             </button>
                         </div>
@@ -61,13 +61,13 @@
                     <!-- PRODUCT_END: Cheddar Burguer 1 -->
 
                     <!-- PRODUCT_START: Cheddar bacon Burguer 2 -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
-                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar bacon Burguer 2" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
-                        <div class="p-4">
-                            <h4 class="font-bold text-lg text-primary">🍔 Cheddar bacon Burguer 2</h4>
-                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
-                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
-                            <button onclick="openProductModal('Cheddar bacon Burguer 2', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card cursor-pointer hover:shadow-lg transition-shadow" data-available="true" onclick="openProductModal('Cheddar bacon Burguer 2', 19.90, 'burger')">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Cheddar bacon Burguer 2" class="w-full h-32 sm:h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-2 sm:p-4">
+                            <h4 class="font-bold text-sm sm:text-lg text-primary">🍔 Cheddar bacon Burguer 2</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 hidden sm:block"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-lg sm:text-xl font-bold text-secondary mb-2 sm:mb-4">R$ 19,90</p>
+                            <button onclick="event.stopPropagation(); openProductModal('Cheddar bacon Burguer 2', 19.90, 'burger')" class="w-full bg-primary text-white py-1 sm:py-2 rounded hover:bg-red-700 transition-colors text-xs sm:text-base">
                                 Ver Produto
                             </button>
                         </div>
@@ -75,13 +75,13 @@
                     <!-- PRODUCT_END: Cheddar bacon Burguer 2 -->
 
                     <!-- PRODUCT_START: Bravari burguer 3 -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
-                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari burguer 3" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
-                        <div class="p-4">
-                            <h4 class="font-bold text-lg text-primary">🍔 Bravari burguer 3</h4>
-                            <p class="text-gray-600 text-sm mb-2"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
-                            <p class="text-xl font-bold text-secondary mb-4">R$ 19,90</p>
-                            <button onclick="openProductModal('Bravari burguer 3', 19.90, 'burger')" class="w-full bg-primary text-white py-2 rounded hover:bg-red-700 transition-colors">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card cursor-pointer hover:shadow-lg transition-shadow" data-available="true" onclick="openProductModal('Bravari burguer 3', 19.90, 'burger')">
+                        <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Bravari burguer 3" class="w-full h-32 sm:h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
+                        <div class="p-2 sm:p-4">
+                            <h4 class="font-bold text-sm sm:text-lg text-primary">🍔 Bravari burguer 3</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 hidden sm:block"><!-- DESCRIPTION: Adicione a descrição aqui --></p>
+                            <p class="text-lg sm:text-xl font-bold text-secondary mb-2 sm:mb-4">R$ 19,90</p>
+                            <button onclick="event.stopPropagation(); openProductModal('Bravari burguer 3', 19.90, 'burger')" class="w-full bg-primary text-white py-1 sm:py-2 rounded hover:bg-red-700 transition-colors text-xs sm:text-base">
                                 Ver Produto
                             </button>
                         </div>
@@ -208,7 +208,7 @@
                     <span class="mr-2">🍔🍟</span>
                     Combos
                 </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
                     <!-- COMBO_START: Combo Cheddar Burguer 1 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
                         <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Combo Cheddar Burguer 1" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
@@ -357,7 +357,7 @@
                     <span class="mr-2">🍫</span>
                     Sobremesas
                 </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
                     <!-- PRODUCT_START: Brownie chocolate -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
                         <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Brownie chocolate" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
@@ -394,7 +394,7 @@
                     <span class="mr-2">🍟</span>
                     Acompanhamentos
                 </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
                     <!-- PRODUCT_START: Batata Frita P -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
                         <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="Batata Frita P" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
@@ -445,7 +445,7 @@
                     <span class="mr-2">🥤</span>
                     Bebidas
                 </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
                     <!-- PRODUCT_START: coca cola latinha 350ml -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden product-card" data-available="true">
                         <img src="https://media.istockphoto.com/id/1319684316/pt/foto/delicious-beef-burger-with-tomato-sauce-parmesan-cheese-and-lettuce-on-wooden-table-on-dark.jpg?s=612x612&w=0&k=20&c=v7WMR3-BqJO-kewLOd4pc64_-p3f80rXVTIzR1Ukdfg=" alt="coca cola latinha 350ml" class="w-full h-48 object-cover" onerror="this.src=''; this.alt='Imagem do produto'; this.style.display='none';">
@@ -523,6 +523,15 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Botão Flutuante Finalizar Pedido -->
+    <div id="floating-checkout" class="fixed bottom-4 left-4 right-4 z-40 hidden lg:hidden">
+        <button onclick="showCheckout()" class="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-green-700 transition-colors flex items-center justify-center space-x-2">
+            <span>🛒</span>
+            <span>Finalizar Pedido</span>
+            <span id="floating-total" class="bg-green-700 px-3 py-1 rounded-full text-sm">R$ 0,00</span>
+        </button>
     </div>
 
     <!-- Modal de Produto -->
@@ -1022,13 +1031,17 @@
             const cartItems = document.getElementById('cart-items');
             const cartTotalElement = document.getElementById('cart-total');
             const checkoutBtn = document.getElementById('checkout-btn');
+            const floatingCheckout = document.getElementById('floating-checkout');
+            const floatingTotal = document.getElementById('floating-total');
             
             cartCount.textContent = cart.length;
             cartTotalElement.textContent = `R$ ${cartTotal.toFixed(2).replace('.', ',')}`;
+            floatingTotal.textContent = `R$ ${cartTotal.toFixed(2).replace('.', ',')}`;
             
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="text-gray-500 text-center">Carrinho vazio</p>';
                 checkoutBtn.disabled = true;
+                floatingCheckout.classList.add('hidden');
             } else {
                 cartItems.innerHTML = cart.map(item => `
                     <div class="flex justify-between items-start p-3 bg-gray-50 rounded">
@@ -1043,6 +1056,7 @@
                     </div>
                 `).join('');
                 checkoutBtn.disabled = false;
+                floatingCheckout.classList.remove('hidden');
             }
         }
 
@@ -1164,5 +1178,5 @@
         checkScreenSize();
         window.addEventListener('resize', checkScreenSize);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a99c78239dcb51',t:'MTc1NzExNjA0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a9b125040f8a83',t:'MTc1NzExNjg4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
