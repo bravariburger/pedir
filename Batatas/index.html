@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bravari Burger - Cardápio Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#DC2626',
+                        'brand-yellow': '#FCD34D',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-brand-red text-white p-4 sticky top-0 z-40 shadow-lg">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                     alt="Bravari Burger" 
+                     class="h-10 w-10 rounded-full"
+                     onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+                <h1 class="text-xl font-bold">Bravari Burger</h1>
+            </div>
+            <div class="text-sm">
+                <p>Delivery</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Navigation -->
+    <nav class="bg-white shadow-sm sticky top-16 z-30 p-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex space-x-4 overflow-x-auto">
+                <button onclick="scrollToCategory('burgers')" class="category-btn bg-brand-red text-white px-4 py-2 rounded-full whitespace-nowrap">
+                    🍔 Burgers
+                </button>
+                <button onclick="scrollToCategory('sobremesas')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full whitespace-nowrap">
+                    🍫 Sobremesas
+                </button>
+                <button onclick="scrollToCategory('acompanhamentos')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full whitespace-nowrap">
+                    🍟 Acompanhamentos
+                </button>
+                <button onclick="scrollToCategory('bebidas')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full whitespace-nowrap">
+                    🥤 Bebidas
+                </button>
+                <button onclick="scrollToCategory('combos')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full whitespace-nowrap">
+                    🍔 Combos
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto p-4 pb-24">
+        <!-- Burgers Category -->
+        <section id="burgers" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                🍔 Burgers
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('cheddar-burger-1')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/fotos%20burguers%20-%20bravari%20burguer/Cheddar%20Burguer.jpg?raw=true" 
+                         alt="Cheddar Burguer" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Cheddar Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Delicioso burger com queijo cheddar</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('cheddar-bacon-burger-2')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/fotos%20burguers%20-%20bravari%20burguer/Cheddar%20Bacon%20Burguer.jpg?raw=true" 
+                         alt="Cheddar Bacon Burguer" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Cheddar Bacon Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger com cheddar e bacon crocante</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('bravari-burger-3')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/fotos%20burguers%20-%20bravari%20burguer/Bravari%20Burguer.jpg?raw=true" 
+                         alt="Bravari Burguer" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Bravari Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Nosso burger especial da casa</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('cheddar-duplo-4')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Cheddar Burguer Duplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Dupla dose de sabor com cheddar</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('cheddar-bacon-duplo-5')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Cheddar Bacon Burguer Duplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Duplo prazer com cheddar e bacon</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('bravari-duplo-6')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Bravari Burguer Duplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Versão dupla do nosso especial</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('bravari-bacon-triplo-7')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Bravari Bacon Triplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Tripla dose de sabor com bacon</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('bravari-ring-triplo-8')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Bravari Ring Triplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Triplo burger com onion rings</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('bravari-ring-9')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Bravari Burguer Ring</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger especial com onion rings</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('vulcan-burger-10')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Vulcan Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger picante para os corajosos</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('cream-cheese-11')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Cream Cheese Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger cremoso com cream cheese</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('bravari-salada-12')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Bravari Salada</h3>
+                        <p class="text-sm text-gray-600 mt-1">Opção saudável com salada fresca</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('cheddar-triplo-13')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Cheddar Burguer Triplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Tripla dose de cheddar cremoso</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobremesas Category -->
+        <section id="sobremesas" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                🍫 Sobremesas
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('brownie-chocolate')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Brownie Chocolate</h3>
+                        <p class="text-sm text-gray-600 mt-1">Brownie cremoso de chocolate</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('brownie-branco')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Brownie Chocolate Branco" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Brownie Chocolate Branco</h3>
+                        <p class="text-sm text-gray-600 mt-1">Brownie de chocolate branco</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acompanhamentos Category -->
+        <section id="acompanhamentos" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                🍟 Acompanhamentos
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('batata-p')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Batata Frita P" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍟 Batata Frita P</h3>
+                        <p class="text-sm text-gray-600 mt-1">Porção pequena de batata frita</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('batata-m')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍟 Batata Frita M</h3>
+                        <p class="text-sm text-gray-600 mt-1">Porção média de batata frita</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('batata-g')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Batata Frita G" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍟 Batata Frita G</h3>
+                        <p class="text-sm text-gray-600 mt-1">Porção grande de batata frita</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bebidas Category -->
+        <section id="bebidas" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                🥤 Bebidas
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('coca-cola')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Coca Cola 350ml</h3>
+                        <p class="text-sm text-gray-600 mt-1">Refrigerante Coca Cola</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('coca-zero')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Coca Cola Zero" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Coca Cola Zero 350ml</h3>
+                        <p class="text-sm text-gray-600 mt-1">Refrigerante Coca Cola Zero</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('guarana-antartica')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Guaraná Antártica" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Guaraná Antártica 350ml</h3>
+                        <p class="text-sm text-gray-600 mt-1">Refrigerante Guaraná Antártica</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combos Category -->
+        <section id="combos" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                🍔 Combos
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-cheddar-1')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/fotos%20dos%20combos%20-%20bravari%20burguer/Cheddar%20Burguer.jpg?raw=true" 
+                         alt="Combo Cheddar Burguer" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Cheddar Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-cheddar-bacon-2')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/fotos%20dos%20combos%20-%20bravari%20burguer/Cheddar%20Bacon%20Burguer.jpg?raw=true" 
+                         alt="Combo Cheddar Bacon" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Cheddar Bacon Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-bravari-3')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/fotos%20dos%20combos%20-%20bravari%20burguer/Bravari%20Burguer.jpg?raw=true" 
+                         alt="Combo Bravari Burguer" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Bravari Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-cheddar-duplo-4')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Cheddar Duplo" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Cheddar Burguer Duplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-cheddar-bacon-duplo-5')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Cheddar Bacon Duplo" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Cheddar Bacon Burguer Duplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-bravari-duplo-6')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Bravari Burguer Duplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-bravari-bacon-triplo-7')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Bravari Bacon Triplo" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Bravari Bacon Triplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-bravari-ring-triplo-8')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Bravari Ring Triplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-bravari-ring-9')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Bravari Ring" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Bravari Burguer Ring</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-vulcan-10')">
+                    <div class="no-image bg-gray-200 h-32 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Vulcan Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-cream-cheese-11')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Cream Cheese" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Cream Cheese Burguer</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-bravari-salada-12')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Bravari Salada" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Bravari Salada</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openProductModal('combo-cheddar-triplo-13')">
+                    <img src="https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true" 
+                         alt="Combo Cheddar Triplo" 
+                         class="w-full h-32 object-cover"
+                         onerror="this.src=''; this.parentElement.querySelector('.no-image').style.display='flex';">
+                    <div class="no-image hidden bg-gray-200 h-32 items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">🍔 Combo Cheddar Burguer Triplo</h3>
+                        <p class="text-sm text-gray-600 mt-1">Burger + Batata + Bebida</p>
+                        <p class="text-brand-red font-bold mt-2">R$ 19,90</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Cart Button -->
+    <div id="floating-cart" class="fixed bottom-4 right-4 z-50 hidden">
+        <button onclick="openCart()" class="bg-brand-red text-white p-4 rounded-full shadow-lg flex items-center space-x-2">
+            <span>🛒</span>
+            <span id="cart-count" class="bg-brand-yellow text-black px-2 py-1 rounded-full text-sm font-bold">0</span>
+        </button>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-end justify-center min-h-screen">
+            <div class="bg-white rounded-t-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 id="modal-title" class="text-xl font-bold"></h3>
+                        <button onclick="closeProductModal()" class="text-gray-500 text-2xl">&times;</button>
+                    </div>
+                    <img id="modal-image" class="w-full h-48 object-cover rounded-lg mb-4" alt="">
+                    <div id="modal-no-image" class="hidden w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-500">📷 Adicionar Foto</span>
+                    </div>
+                    <p id="modal-description" class="text-gray-600 mb-4"></p>
+                    <p id="modal-price" class="text-2xl font-bold text-brand-red mb-4"></p>
+                    
+                    <!-- Adicionais -->
+                    <div id="adicionais-section" class="mb-4">
+                        <h4 class="font-semibold mb-2">Adicionais:</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center justify-between">
+                                <span>Bacon Extra (+R$ 3,00)</span>
+                                <input type="checkbox" class="adicional" data-name="Bacon Extra" data-price="3.00">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>Queijo Extra (+R$ 2,50)</span>
+                                <input type="checkbox" class="adicional" data-name="Queijo Extra" data-price="2.50">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>Cebola Roxa (+R$ 1,00)</span>
+                                <input type="checkbox" class="adicional" data-name="Cebola Roxa" data-price="1.00">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Crossell para Burgers -->
+                    <div id="crossell-burgers" class="mb-4 hidden">
+                        <h4 class="font-semibold mb-2">Adicione uma batata:</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center justify-between">
+                                <span>🍟 Batata Frita P (+R$ 19,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Batata Frita P" data-price="19.90">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>🍟 Batata Frita M (+R$ 19,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Batata Frita M" data-price="19.90">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>🍟 Batata Frita G (+R$ 19,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Batata Frita G" data-price="19.90">
+                            </label>
+                        </div>
+                        
+                        <h4 class="font-semibold mb-2 mt-4">Adicione uma bebida:</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center justify-between">
+                                <span>Coca Cola 350ml (+R$ 19,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Coca Cola 350ml" data-price="19.90">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>Coca Cola Zero 350ml (+R$ 19,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Coca Cola Zero 350ml" data-price="19.90">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>Guaraná Antártica 350ml (+R$ 19,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Guaraná Antártica 350ml" data-price="19.90">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Crossell para Combos -->
+                    <div id="crossell-combos" class="mb-4 hidden">
+                        <h4 class="font-semibold mb-2">Aumente sua batata:</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center justify-between">
+                                <span>🍟 Batata P (+R$ 12,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Upgrade Batata P" data-price="12.90">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>🍟 Batata M (+R$ 12,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Upgrade Batata M" data-price="12.90">
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <span>🍟 Batata G (+R$ 12,90)</span>
+                                <input type="checkbox" class="crossell" data-name="Upgrade Batata G" data-price="12.90">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Observações -->
+                    <div class="mb-4">
+                        <label class="block font-semibold mb-2">Observações:</label>
+                        <textarea id="observacoes" class="w-full p-2 border rounded-lg" rows="3" placeholder="Alguma observação especial?"></textarea>
+                    </div>
+
+                    <!-- Quantity and Add Button -->
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <button onclick="decreaseQuantity()" class="bg-gray-200 w-8 h-8 rounded-full">-</button>
+                            <span id="quantity" class="font-bold">1</span>
+                            <button onclick="increaseQuantity()" class="bg-gray-200 w-8 h-8 rounded-full">+</button>
+                        </div>
+                        <button onclick="addToCart()" class="bg-brand-red text-white px-6 py-2 rounded-lg font-semibold">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div id="success-notification" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300">
+        <div class="flex items-center space-x-2">
+            <span>✅</span>
+            <span>Produto adicionado ao carrinho!</span>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-end justify-center min-h-screen">
+            <div class="bg-white rounded-t-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold">Seu Pedido</h3>
+                        <button onclick="closeCart()" class="text-gray-500 text-2xl">&times;</button>
+                    </div>
+                    <div id="cart-items" class="space-y-4 mb-4">
+                        <!-- Cart items will be inserted here -->
+                    </div>
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xl font-bold">Total:</span>
+                            <span id="cart-total" class="text-xl font-bold text-brand-red">R$ 0,00</span>
+                        </div>
+                        <button onclick="sendToWhatsApp()" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold">
+                            🍳 Enviar Pedido para Cozinha
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let currentProduct = null;
+        let quantity = 1;
+
+        const products = {
+            // Burgers
+            'cheddar-burger-1': {
+                name: '🍔 Cheddar Burguer',
+                price: 19.90,
+                description: 'Delicioso burger com queijo cheddar derretido, alface, tomate e molho especial',
+                image: 'https://github.com/bravariburger/pedir/blob/main/fotos%20burguers%20-%20bravari%20burguer/Cheddar%20Burguer.jpg?raw=true',
+                category: 'burger'
+            },
+            'cheddar-bacon-burger-2': {
+                name: '🍔 Cheddar Bacon Burguer',
+                price: 19.90,
+                description: 'Burger com cheddar cremoso e bacon crocante, alface, tomate e molho especial',
+                image: 'https://github.com/bravariburger/pedir/blob/main/fotos%20burguers%20-%20bravari%20burguer/Cheddar%20Bacon%20Burguer.jpg?raw=true',
+                category: 'burger'
+            },
+            'bravari-burger-3': {
+                name: '🍔 Bravari Burguer',
+                price: 19.90,
+                description: 'Nosso burger especial da casa com ingredientes selecionados',
+                image: 'https://github.com/bravariburger/pedir/blob/main/fotos%20burguers%20-%20bravari%20burguer/Bravari%20Burguer.jpg?raw=true',
+                category: 'burger'
+            },
+            'cheddar-duplo-4': {
+                name: '🍔 Cheddar Burguer Duplo',
+                price: 19.90,
+                description: 'Dupla dose de sabor com cheddar cremoso',
+                image: null,
+                category: 'burger'
+            },
+            'cheddar-bacon-duplo-5': {
+                name: '🍔 Cheddar Bacon Burguer Duplo',
+                price: 19.90,
+                description: 'Duplo prazer com cheddar e bacon crocante',
+                image: null,
+                category: 'burger'
+            },
+            'bravari-duplo-6': {
+                name: '🍔 Bravari Burguer Duplo',
+                price: 19.90,
+                description: 'Versão dupla do nosso especial da casa',
+                image: null,
+                category: 'burger'
+            },
+            'bravari-bacon-triplo-7': {
+                name: '🍔 Bravari Bacon Triplo',
+                price: 19.90,
+                description: 'Tripla dose de sabor com bacon crocante',
+                image: null,
+                category: 'burger'
+            },
+            'bravari-ring-triplo-8': {
+                name: '🍔 Bravari Ring Triplo',
+                price: 19.90,
+                description: 'Triplo burger com onion rings crocantes',
+                image: null,
+                category: 'burger'
+            },
+            'bravari-ring-9': {
+                name: '🍔 Bravari Burguer Ring',
+                price: 19.90,
+                description: 'Burger especial com onion rings',
+                image: null,
+                category: 'burger'
+            },
+            'vulcan-burger-10': {
+                name: '🍔 Vulcan Burguer',
+                price: 19.90,
+                description: 'Burger picante para os corajosos',
+                image: null,
+                category: 'burger'
+            },
+            'cream-cheese-11': {
+                name: '🍔 Cream Cheese Burguer',
+                price: 19.90,
+                description: 'Burger cremoso com cream cheese',
+                image: null,
+                category: 'burger'
+            },
+            'bravari-salada-12': {
+                name: '🍔 Bravari Salada',
+                price: 19.90,
+                description: 'Opção saudável com salada fresca',
+                image: null,
+                category: 'burger'
+            },
+            'cheddar-triplo-13': {
+                name: '🍔 Cheddar Burguer Triplo',
+                price: 19.90,
+                description: 'Tripla dose de cheddar cremoso',
+                image: null,
+                category: 'burger'
+            },
+            
+            // Sobremesas
+            'brownie-chocolate': {
+                name: '🍫 Brownie Chocolate',
+                price: 19.90,
+                description: 'Brownie cremoso de chocolate com pedaços de chocolate',
+                image: null,
+                category: 'sobremesa'
+            },
+            'brownie-branco': {
+                name: '🍫 Brownie Chocolate Branco',
+                price: 19.90,
+                description: 'Brownie de chocolate branco cremoso',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'sobremesa'
+            },
+            
+            // Acompanhamentos
+            'batata-p': {
+                name: '🍟 Batata Frita P',
+                price: 19.90,
+                description: 'Porção pequena de batata frita crocante',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'acompanhamento'
+            },
+            'batata-m': {
+                name: '🍟 Batata Frita M',
+                price: 19.90,
+                description: 'Porção média de batata frita crocante',
+                image: null,
+                category: 'acompanhamento'
+            },
+            'batata-g': {
+                name: '🍟 Batata Frita G',
+                price: 19.90,
+                description: 'Porção grande de batata frita crocante',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'acompanhamento'
+            },
+            
+            // Bebidas
+            'coca-cola': {
+                name: 'Coca Cola 350ml',
+                price: 19.90,
+                description: 'Refrigerante Coca Cola gelado',
+                image: null,
+                category: 'bebida'
+            },
+            'coca-zero': {
+                name: 'Coca Cola Zero 350ml',
+                price: 19.90,
+                description: 'Refrigerante Coca Cola Zero gelado',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'bebida'
+            },
+            'guarana-antartica': {
+                name: 'Guaraná Antártica 350ml',
+                price: 19.90,
+                description: 'Refrigerante Guaraná Antártica gelado',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'bebida'
+            },
+            
+            // Combos
+            'combo-cheddar-1': {
+                name: '🍔 Combo Cheddar Burguer',
+                price: 19.90,
+                description: 'Cheddar Burguer + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/fotos%20dos%20combos%20-%20bravari%20burguer/Cheddar%20Burguer.jpg?raw=true',
+                category: 'combo'
+            },
+            'combo-cheddar-bacon-2': {
+                name: '🍔 Combo Cheddar Bacon Burguer',
+                price: 19.90,
+                description: 'Cheddar Bacon Burguer + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/fotos%20dos%20combos%20-%20bravari%20burguer/Cheddar%20Bacon%20Burguer.jpg?raw=true',
+                category: 'combo'
+            },
+            'combo-bravari-3': {
+                name: '🍔 Combo Bravari Burguer',
+                price: 19.90,
+                description: 'Bravari Burguer + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/fotos%20dos%20combos%20-%20bravari%20burguer/Bravari%20Burguer.jpg?raw=true',
+                category: 'combo'
+            },
+            'combo-cheddar-duplo-4': {
+                name: '🍔 Combo Cheddar Burguer Duplo',
+                price: 19.90,
+                description: 'Cheddar Burguer Duplo + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            },
+            'combo-cheddar-bacon-duplo-5': {
+                name: '🍔 Combo Cheddar Bacon Burguer Duplo',
+                price: 19.90,
+                description: 'Cheddar Bacon Burguer Duplo + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            },
+            'combo-bravari-duplo-6': {
+                name: '🍔 Combo Bravari Burguer Duplo',
+                price: 19.90,
+                description: 'Bravari Burguer Duplo + Batata Frita + Refrigerante 350ml',
+                image: null,
+                category: 'combo'
+            },
+            'combo-bravari-bacon-triplo-7': {
+                name: '🍔 Combo Bravari Bacon Triplo',
+                price: 19.90,
+                description: 'Bravari Bacon Triplo + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            },
+            'combo-bravari-ring-triplo-8': {
+                name: '🍔 Combo Bravari Ring Triplo',
+                price: 19.90,
+                description: 'Bravari Ring Triplo + Batata Frita + Refrigerante 350ml',
+                image: null,
+                category: 'combo'
+            },
+            'combo-bravari-ring-9': {
+                name: '🍔 Combo Bravari Burguer Ring',
+                price: 19.90,
+                description: 'Bravari Burguer Ring + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            },
+            'combo-vulcan-10': {
+                name: '🍔 Combo Vulcan Burguer',
+                price: 19.90,
+                description: 'Vulcan Burguer + Batata Frita + Refrigerante 350ml',
+                image: null,
+                category: 'combo'
+            },
+            'combo-cream-cheese-11': {
+                name: '🍔 Combo Cream Cheese Burguer',
+                price: 19.90,
+                description: 'Cream Cheese Burguer + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            },
+            'combo-bravari-salada-12': {
+                name: '🍔 Combo Bravari Salada',
+                price: 19.90,
+                description: 'Bravari Salada + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            },
+            'combo-cheddar-triplo-13': {
+                name: '🍔 Combo Cheddar Burguer Triplo',
+                price: 19.90,
+                description: 'Cheddar Burguer Triplo + Batata Frita + Refrigerante 350ml',
+                image: 'https://github.com/bravariburger/pedir/blob/main/MYSTIC.png?raw=true',
+                category: 'combo'
+            }
+        };
+
+        function scrollToCategory(categoryId) {
+            document.getElementById(categoryId).scrollIntoView({ behavior: 'smooth' });
+            
+            // Update active category button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-red', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-brand-red', 'text-white');
+        }
+
+        function openProductModal(productId) {
+            currentProduct = products[productId] || {
+                name: productId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                price: 19.90,
+                description: 'Produto delicioso preparado com ingredientes frescos',
+                image: null,
+                category: 'other'
+            };
+            
+            document.getElementById('modal-title').textContent = currentProduct.name;
+            document.getElementById('modal-description').textContent = currentProduct.description;
+            document.getElementById('modal-price').textContent = `R$ ${currentProduct.price.toFixed(2).replace('.', ',')}`;
+            
+            const modalImage = document.getElementById('modal-image');
+            const modalNoImage = document.getElementById('modal-no-image');
+            
+            if (currentProduct.image) {
+                modalImage.src = currentProduct.image;
+                modalImage.style.display = 'block';
+                modalNoImage.style.display = 'none';
+                modalImage.onerror = function() {
+                    this.style.display = 'none';
+                    modalNoImage.style.display = 'flex';
+                };
+            } else {
+                modalImage.style.display = 'none';
+                modalNoImage.style.display = 'flex';
+            }
+            
+            // Show/hide crossell sections based on category
+            const crossellBurgers = document.getElementById('crossell-burgers');
+            const crossellCombos = document.getElementById('crossell-combos');
+            
+            if (currentProduct.category === 'burger') {
+                crossellBurgers.classList.remove('hidden');
+                crossellCombos.classList.add('hidden');
+            } else if (currentProduct.category === 'combo') {
+                crossellBurgers.classList.add('hidden');
+                crossellCombos.classList.remove('hidden');
+            } else {
+                crossellBurgers.classList.add('hidden');
+                crossellCombos.classList.add('hidden');
+            }
+            
+            // Reset form
+            quantity = 1;
+            document.getElementById('quantity').textContent = quantity;
+            document.querySelectorAll('.adicional').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.crossell').forEach(cb => cb.checked = false);
+            document.getElementById('observacoes').value = '';
+            
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+
+        function addToCart() {
+            if (!currentProduct) return;
+            
+            const adicionais = [];
+            const crossells = [];
+            let additionalPrice = 0;
+            
+            document.querySelectorAll('.adicional:checked').forEach(cb => {
+                const name = cb.dataset.name;
+                const price = parseFloat(cb.dataset.price);
+                adicionais.push({ name, price });
+                additionalPrice += price;
+            });
+            
+            document.querySelectorAll('.crossell:checked').forEach(cb => {
+                const name = cb.dataset.name;
+                const price = parseFloat(cb.dataset.price);
+                crossells.push({ name, price });
+                additionalPrice += price;
+            });
+            
+            const observacoes = document.getElementById('observacoes').value;
+            const totalPrice = (currentProduct.price + additionalPrice) * quantity;
+            
+            const cartItem = {
+                id: Date.now(),
+                name: currentProduct.name,
+                price: currentProduct.price,
+                quantity: quantity,
+                adicionais: adicionais,
+                crossells: crossells,
+                observacoes: observacoes,
+                totalPrice: totalPrice
+            };
+            
+            cart.push(cartItem);
+            updateCartUI();
+            showSuccessNotification();
+            closeProductModal();
+        }
+
+        function showSuccessNotification() {
+            const notification = document.getElementById('success-notification');
+            notification.classList.remove('translate-x-full');
+            notification.classList.add('translate-x-0');
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-0');
+                notification.classList.add('translate-x-full');
+            }, 3000);
+        }
+
+        function updateCartUI() {
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const floatingCart = document.getElementById('floating-cart');
+            
+            if (cartCount > 0) {
+                floatingCart.classList.remove('hidden');
+                document.getElementById('cart-count').textContent = cartCount;
+            } else {
+                floatingCart.classList.add('hidden');
+            }
+        }
+
+        function openCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                total += item.totalPrice;
+                
+                const adicionaisText = item.adicionais.length > 0 
+                    ? item.adicionais.map(a => a.name).join(', ')
+                    : '';
+                
+                const crossellsText = item.crossells && item.crossells.length > 0 
+                    ? item.crossells.map(c => c.name).join(', ')
+                    : '';
+                
+                cartItems.innerHTML += `
+                    <div class="border-b pb-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <h4 class="font-semibold">${item.name}</h4>
+                                <p class="text-sm text-gray-600">Qtd: ${item.quantity}</p>
+                                ${adicionaisText ? `<p class="text-sm text-gray-600">Adicionais: ${adicionaisText}</p>` : ''}
+                                ${crossellsText ? `<p class="text-sm text-gray-600">Extras: ${crossellsText}</p>` : ''}
+                                ${item.observacoes ? `<p class="text-sm text-gray-600">Obs: ${item.observacoes}</p>` : ''}
+                            </div>
+                            <div class="text-right">
+                                <p class="font-semibold">R$ ${item.totalPrice.toFixed(2).replace('.', ',')}</p>
+                                <button onclick="removeFromCart(${index})" class="text-red-500 text-sm">Remover</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+            if (cart.length === 0) {
+                closeCart();
+            } else {
+                openCart();
+            }
+        }
+
+        function sendToWhatsApp() {
+            if (cart.length === 0) return;
+            
+            let message = "🍔 *NOVO PEDIDO - BRAVARI BURGER* 🍔\n\n";
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                message += `${index + 1}. *${item.name}*\n`;
+                message += `   Quantidade: ${item.quantity}\n`;
+                message += `   Preço unitário: R$ ${item.price.toFixed(2).replace('.', ',')}\n`;
+                
+                if (item.adicionais.length > 0) {
+                    message += `   Adicionais:\n`;
+                    item.adicionais.forEach(adicional => {
+                        message += `   • ${adicional.name} (+R$ ${adicional.price.toFixed(2).replace('.', ',')})\n`;
+                    });
+                }
+                
+                if (item.crossells && item.crossells.length > 0) {
+                    message += `   Extras:\n`;
+                    item.crossells.forEach(crossell => {
+                        message += `   • ${crossell.name} (+R$ ${crossell.price.toFixed(2).replace('.', ',')})\n`;
+                    });
+                }
+                
+                if (item.observacoes) {
+                    message += `   Observações: ${item.observacoes}\n`;
+                }
+                
+                message += `   Subtotal: R$ ${item.totalPrice.toFixed(2).replace('.', ',')}\n\n`;
+                total += item.totalPrice;
+            });
+            
+            message += `💰 *TOTAL DO PEDIDO: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
+            message += "🍳 *ENVIAR PARA COZINHA* 🍳";
+            
+            const whatsappNumber = "5521959549941";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Initialize
+        updateCartUI();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97c00f196244e10b',t:'MTc1NzM1MTQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
